@@ -10,7 +10,7 @@ type TJsonData = {
     isEditable: boolean;
 };
 
-export async function fetchJsonData(file: any): Promise<TJsonData> {
+export async function fetchJsonData(file: string): Promise<TJsonData> {
     let response, data: TJsonData;
     try {
         // may error if no network connection, no valid json etc
