@@ -1,9 +1,12 @@
 const { merge } = require('webpack-merge');
-const commonConfig = require('./webpack.common.js');
+const commonConfig = require('./webpack.common');
+const presetConfig = require('./loadPresets');
+const envConfig = (env) => require(`./webpack.${env}`);
 
-module.exports = (envVars) => {
-    const { env } = envVars;
-    const envConfig = require(`./webpack.${env}.js`);
-    const config = merge(commonConfig, envConfig);
-    return config;
+module.exports = ({ env, presets } = { env: 'prod', presets: 'analyze' }) => {
+    return merge(
+        commonConfig,
+        envConfig(env),
+        presets ? presetConfig({ env, presets }) : {}
+    );
 };

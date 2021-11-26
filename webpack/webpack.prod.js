@@ -1,6 +1,6 @@
 const webpack = require('webpack');
-const BundleAnalyzerPlugin =
-    require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const CopyPlugin = require('copy-webpack-plugin');
+
 module.exports = {
     mode: 'production',
     devtool: 'source-map',
@@ -8,6 +8,8 @@ module.exports = {
         new webpack.DefinePlugin({
             'process.env.name': JSON.stringify(''),
         }),
-        new BundleAnalyzerPlugin(),
+        new CopyPlugin({
+            patterns: [{ from: './productData.json', to: '.' }],
+        }),
     ],
 };

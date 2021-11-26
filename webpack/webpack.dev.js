@@ -1,4 +1,4 @@
-const webpack = require('webpack');
+const webpackPlugin = require('webpack');
 const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
 
 module.exports = {
@@ -7,10 +7,11 @@ module.exports = {
     devServer: {
         hot: true,
         open: true,
+        static: '.',
     },
     plugins: [
         // new ReactRefreshWebpackPlugin(),
-        new webpack.DefinePlugin({
+        new webpackPlugin.DefinePlugin({
             'process.env.name': JSON.stringify(''),
         }),
         new ReactRefreshWebpackPlugin(),
