@@ -1,7 +1,13 @@
 import { AnyAction } from 'redux';
 import USER from './constants';
+import { TJsonData } from './utils/dataService';
 
-const initialState = {
+export type TReduxState = {
+    jsonData: TJsonData[];
+    isLoading: boolean;
+    isError: boolean;
+};
+const initialState: TReduxState = {
     jsonData: [],
     isLoading: false,
     isError: false,
@@ -18,7 +24,21 @@ const reducer = (state = initialState, action: AnyAction) => {
         case USER.LOAD_SUCCESS:
             return {
                 ...state,
-                jsonData: action.jsonData,
+                jsonData: action.payload,
+                isLoading: false,
+            };
+        case USER.UPDATE:
+            const { _id } = action.payload;
+            const currentIndex = state.jsonData.findIndex(
+                (item) => item._id === _id
+            );
+            return {
+                ...state,
+                jsonData: [
+                    ...state.jsonData.slice(0, currentIndex),
+                    action.payload,
+                    ...state.jsonData.slice(currentIndex + 1),
+                ],
                 isLoading: false,
             };
         default:

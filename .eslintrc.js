@@ -16,6 +16,7 @@ module.exports = {
         'prettier',
         'plugin:prettier/recommended',
     ],
+    plugins: ['@emotion'],
     rules: {
         'no-unused-vars': 'off',
         '@typescript-eslint/no-unused-vars': ['error'],

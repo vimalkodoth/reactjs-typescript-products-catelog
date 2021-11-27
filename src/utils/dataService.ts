@@ -1,4 +1,4 @@
-type TJsonData = {
+export type TJsonData = {
     _id: number;
     product_name: string;
     weight: string;
