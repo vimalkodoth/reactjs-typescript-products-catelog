@@ -6,8 +6,8 @@
     "scripts": {
         "dev": "webpack serve --config webpack/webpack.config.js --env env=dev",
         "prod": "webpack -- --config webpack/webpack.config.js --env env=prod",
-        "lint": "eslint --fix \"./src/**/*.{js,jsx,ts,tsx,json}\"",
-        "format": "prettier --write \"./src/**/*.{js,jsx,ts,tsx,json,css,scss,md}\"",
+        "lint": "eslint --fix \"./{src,tests}/**/*.{js,jsx,ts,tsx,json}\"",
+        "format": "prettier --write \"./{src,tests}/**/*.{js,jsx,ts,tsx,json,css,scss,md}\"",
         "prod:analyze": "yarn prod --env presets=analyze",
         "test": "jest"
     },
@@ -30,14 +30,18 @@
         "@emotion/eslint-plugin": "^11.7.0",
         "@emotion/react": "^11.7.0",
         "@pmmmwh/react-refresh-webpack-plugin": "^0.5.2",
+        "@types/enzyme": "^3.10.10",
+        "@types/jest": "^27.0.3",
         "@types/react": "^17.0.37",
         "@types/react-dom": "^17.0.11",
         "@types/react-redux": "^7.1.20",
         "@typescript-eslint/eslint-plugin": "^5.4.0",
         "@typescript-eslint/parser": "^5.4.0",
+        "@wojtekmaj/enzyme-adapter-react-17": "^0.6.5",
         "babel-loader": "^8.2.3",
         "copy-webpack-plugin": "^10.0.0",
         "css-loader": "^6.5.1",
+        "enzyme": "^3.11.0",
         "eslint": "^8.3.0",
         "eslint-config-prettier": "^8.3.0",
         "eslint-plugin-eslint-comments": "^3.2.0",
@@ -49,6 +53,7 @@
         "html-webpack-plugin": "^5.5.0",
         "husky": "4",
         "jest": "^27.3.1",
+        "jest-serializer-html": "^7.1.0",
         "lint-staged": "^12.1.2",
         "prettier": "^2.5.0",
         "react-refresh": "^0.11.0",
@@ -67,10 +72,10 @@
         }
     },
     "lint-staged": {
-        "src/**/*.{js,jsx,ts,tsx,json}": [
+        "{src,tests}/**/*.{js,jsx,ts,tsx,json}": [
             "eslint --fix"
         ],
-        "src/**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
+        "{src,tests}/**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
             "prettier --write"
         ]
     },
