@@ -1,13 +1,10 @@
 /** @jsxImportSource @emotion/react */
 import { useEffect } from 'react';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from '../hooks/typed-hooks';
 import { requestJSON } from '../redux/action';
-import Table from './Table';
-import EditProduct from './EditProduct';
-import NotFound from './NotFound';
 import { AppCSS } from './App.styles';
-import { getHeadingsFromJson, getRowsFromJson } from '../utils/helpers';
+import AppRoutes from './Routes';
 
 export type TRows = string | number | boolean;
 
@@ -23,27 +20,12 @@ const App = (): JSX.Element => {
         dispatch(requestJSON());
     }, [dispatch]);
 
-    if (isLoading) return <div>Loading data ...</div>;
-    if (isError) return <div>Some error occured ...</div>;
+    if (isLoading) return <div>Loading data...</div>;
+    if (isError) return <div>Some error occured...</div>;
     return (
         <div css={AppCSS}>
             <BrowserRouter>
-                <Routes>
-                    <Route
-                        path="/"
-                        element={
-                            <Table
-                                headings={getHeadingsFromJson()}
-                                rows={getRowsFromJson(jsonData)}
-                            />
-                        }
-                    ></Route>
-                    <Route
-                        path="/edit-product/:productId"
-                        element={<EditProduct />}
-                    ></Route>
-                    <Route path="*" element={<NotFound />} />
-                </Routes>
+                <AppRoutes jsonData={jsonData} />
             </BrowserRouter>
         </div>
     );
