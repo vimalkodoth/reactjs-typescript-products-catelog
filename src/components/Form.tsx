@@ -11,7 +11,7 @@ import {
     labelCSS,
     submitButtonCSS,
 } from './Form.styles';
-import { useForm } from '../hooks/useForm';
+import useForm from '../hooks/useForm';
 
 type TFormProps = {
     formData: IData;

@@ -13,7 +13,7 @@ type Validations<T> = Partial<Record<keyof T, Validation>>;
 
 type TBase = string | boolean | number;
 
-export const useForm = <T extends Record<keyof T, TBase>>(options?: {
+const useForm = <T extends Record<keyof T, TBase>>(options?: {
     validations?: Validations<T>;
     initialValues: T;
     onSubmit?: () => void;
@@ -75,3 +75,5 @@ export const useForm = <T extends Record<keyof T, TBase>>(options?: {
         errors,
     };
 };
+
+export default useForm;
