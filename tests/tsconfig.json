@@ -11,5 +11,5 @@
         "types": ["jest"],
         "rootDir": ".."
     },
-    "include": [".."]
+    "include": ["../*"]
 }

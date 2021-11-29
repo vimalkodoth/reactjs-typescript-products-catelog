@@ -9,7 +9,9 @@
         "lint": "eslint --fix \"./{src,tests}/**/*.{js,jsx,ts,tsx,json}\"",
         "format": "prettier --write \"./{src,tests}/**/*.{js,jsx,ts,tsx,json,css,scss,md}\"",
         "prod:analyze": "yarn prod --env presets=analyze",
-        "test": "jest"
+        "test": "jest",
+        "test:watch": "jest --watch",
+        "test:coverage": "jest --coverage"
     },
     "keywords": [],
     "author": "",

@@ -21,10 +21,10 @@ module.exports = {
     testEnvironment: 'jsdom',
 
     // The glob patterns Jest uses to detect test files
-    testMatch: ['**/tests/**/*.ts?(x)', '**/?(*.)+(spec|test).ts?(x)'],
+    testMatch: ['**/tests/**/*.[jt]s?(x)', '**/?(*.)+(spec|test).[tj]s?(x)'],
 
     // An array of regexp pattern strings that are matched against all test paths, matched tests are skipped
-    testPathIgnorePatterns: ['\\\\node_modules\\\\'],
+    testPathIgnorePatterns: ['\\\\node_modules\\\\', 'd.ts'],
 
     // This option sets the URL for the jsdom environment. It is reflected in properties such as location.href
     testURL: 'http://localhost',
