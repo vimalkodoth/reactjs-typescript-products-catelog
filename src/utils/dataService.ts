@@ -12,8 +12,8 @@ export interface IData extends IProduct {
     _id: number;
 }
 
-export async function fetchJsonData(file: string): Promise<IData> {
-    let response, data: IData;
+export async function fetchJsonData(file: string): Promise<IData[]> {
+    let response, data: IData[];
     try {
         // may error if no network connection, no valid json etc
         response = await fetch(file);
