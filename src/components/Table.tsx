@@ -1,23 +1,13 @@
-import { Link } from 'react-router-dom';
 /** @jsxImportSource @emotion/react */
-import { css } from '@emotion/react';
+import { Link } from 'react-router-dom';
 import { TRows } from './App';
 import Button from './Button';
+import { tdRowsCSS, thHeadCSS } from './Table.styles';
 
 type TAppProps = {
     headings: string[];
     rows: TRows[][];
 };
-
-const thHeadCSS = (isId: string) => css`
-    display: ${isId === '_id' ? 'none' : 'table-cell'};
-    padding: 8px;
-`;
-
-const tdRowsCSS = (index: number) => css`
-    display: ${index === 0 ? 'none' : 'table-cell'};
-    padding: 8px;
-`;
 
 const Table = ({ headings, rows }: TAppProps): JSX.Element => {
     return (
@@ -45,12 +35,16 @@ const Table = ({ headings, rows }: TAppProps): JSX.Element => {
                                             key={item.toString()}
                                             css={tdRowsCSS(i)}
                                         >
-                                            {headings[i] === 'isEditable' ? (
-                                                <Link
-                                                    to={`/edit-product/${productId}`}
-                                                >
-                                                    <Button title="Edit" />
-                                                </Link>
+                                            {i === row.length - 1 ? (
+                                                row[i] ? (
+                                                    <Link
+                                                        to={`/edit-product/${productId}`}
+                                                    >
+                                                        <Button title="Edit" />
+                                                    </Link>
+                                                ) : (
+                                                    ''
+                                                )
                                             ) : (
                                                 item.toString()
                                             )}

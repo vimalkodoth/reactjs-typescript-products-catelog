@@ -1,6 +1,6 @@
 import JSONDATA from './constants';
 import type { TAppThunk } from './store';
-import { fetchJsonData, TJsonData } from './utils/dataService';
+import { fetchJsonData, IData } from '../utils/dataService';
 
 export const requestJSON = (): TAppThunk<void> => async (dispatch) => {
     dispatch({
@@ -23,7 +23,7 @@ export const requestJSON = (): TAppThunk<void> => async (dispatch) => {
     }
 };
 
-type TFormData = TJsonData | undefined;
+type TFormData = IData | undefined;
 
 export const updateStore = (formData: TFormData) => ({
     type: JSONDATA.UPDATE,

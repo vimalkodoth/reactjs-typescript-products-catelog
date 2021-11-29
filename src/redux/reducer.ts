@@ -1,9 +1,9 @@
 import { AnyAction } from 'redux';
 import USER from './constants';
-import { TJsonData } from './utils/dataService';
+import { IData } from '../utils/dataService';
 
 export type TReduxState = {
-    jsonData: TJsonData[];
+    jsonData: IData[];
     isLoading: boolean;
     isError: boolean;
 };

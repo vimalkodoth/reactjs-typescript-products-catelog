@@ -1,5 +1,4 @@
-export type TJsonData = {
-    _id: number;
+export interface IProduct {
     product_name: string;
     weight: string;
     availability: number;
@@ -7,11 +6,14 @@ export type TJsonData = {
     price_tier: string;
     price_range: string;
     unit_cost: string;
-    isEditable: boolean;
-};
+    isEditable: true;
+}
+export interface IData extends IProduct {
+    _id: number;
+}
 
-export async function fetchJsonData(file: string): Promise<TJsonData> {
-    let response, data: TJsonData;
+export async function fetchJsonData(file: string): Promise<IData> {
+    let response, data: IData;
     try {
         // may error if no network connection, no valid json etc
         response = await fetch(file);
