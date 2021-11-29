@@ -159,13 +159,13 @@ const Form = ({ formData }: TFormProps): JSX.Element => {
                     <input
                         id="price_tier"
                         type="radio"
-                        value="premier"
+                        value="premium"
                         onChange={handleChange('price_tier')}
                         checked={
-                            product['price_tier'] === 'premier' ? true : false
+                            product['price_tier'] === 'premium' ? true : false
                         }
                     />{' '}
-                    premier
+                    premium
                 </div>
                 <p css={fieldErrorCSS}>
                     {errors.price_tier ? errors.price_tier : ''}
