@@ -7,7 +7,7 @@ interface Validation {
     };
 }
 
-type ErrorRecord<T> = Partial<Record<keyof T, TBase>>;
+type ErrorRecord<T> = Partial<Record<keyof T, string>>;
 
 type Validations<T> = Partial<Record<keyof T, Validation>>;
 
