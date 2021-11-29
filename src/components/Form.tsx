@@ -1,7 +1,7 @@
 /** @jsxImportSource @emotion/react */
 import { useNavigate } from 'react-router-dom';
 import { updateStore } from '../redux/action';
-import { useAppDispatch } from '../redux/hooks';
+import { useAppDispatch } from '../hooks/typed-hooks';
 import { IData, IProduct } from '../utils/dataService';
 import {
     elemCSS,

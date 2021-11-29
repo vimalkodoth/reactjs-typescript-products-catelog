@@ -1,7 +1,7 @@
 /** @jsxImportSource @emotion/react */
 import { useEffect } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import { useAppDispatch, useAppSelector } from '../redux/hooks';
+import { useAppDispatch, useAppSelector } from '../hooks/typed-hooks';
 import { requestJSON } from '../redux/action';
 import Table from './Table';
 import EditProduct from './EditProduct';

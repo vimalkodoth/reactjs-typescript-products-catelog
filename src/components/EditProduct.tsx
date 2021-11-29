@@ -1,6 +1,6 @@
 import { useParams } from 'react-router-dom';
 import Form from './Form';
-import { useAppSelector } from '../redux/hooks';
+import { useAppSelector } from '../hooks/typed-hooks';
 
 const EditProduct = (): JSX.Element => {
     const params = useParams();
