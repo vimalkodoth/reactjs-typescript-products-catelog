@@ -4,8 +4,8 @@
 
 Run following commands in the root directory of the project:
 
-yarn
-yarn dev #this will start serving project locally
+#yarn
+#yarn dev #this will start serving project locally
 
 Additionally, following commands are available:
 
