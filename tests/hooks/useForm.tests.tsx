@@ -28,7 +28,6 @@ describe('useForm hook', () => {
     it('must validate as invalid for the form data', () => {
         const testData = productData[0];
         testData['product_name'] = '';
-        console.log(testData);
         const { isValid } = setup(
             getFormValidation({
                 onSubmit: jest.fn,
