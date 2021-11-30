@@ -4,7 +4,7 @@ import { BrowserRouter } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from '../hooks/typed-hooks';
 import { requestJSON } from '../redux/action';
 import { AppCSS } from './App.styles';
-import AppRoutes from './Routes';
+import AppRoutes from './AppRoutes';
 
 export type TRows = string | number | boolean;
 
