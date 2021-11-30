@@ -18,6 +18,8 @@ const useForm = <T extends Record<keyof T, TBase>>(options?: {
     initialValues: T;
     onSubmit?: () => void;
 }) => {
+    console.log('Hello!!!!');
+    console.log(options?.initialValues);
     const [data, setData] = useState<T>((options?.initialValues || {}) as T);
     const [errors, setErrors] = useState<ErrorRecord<T>>({});
     const [isValid, setIsValid] = useState(true);
@@ -55,6 +57,7 @@ const useForm = <T extends Record<keyof T, TBase>>(options?: {
     };
 
     useEffect(() => {
+        console.log('validating form');
         const { isValid, errors } = validateForm();
         setIsValid(isValid);
         setErrors(errors);

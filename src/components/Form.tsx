@@ -12,6 +12,7 @@ import {
     submitButtonCSS,
 } from './Form.styles';
 import useForm from '../hooks/useForm';
+import { getFormValidation } from '../utils/helpers';
 
 type TFormProps = {
     formData: IData;
@@ -26,58 +27,15 @@ const Form = ({ formData }: TFormProps): JSX.Element => {
         handleChange,
         handleSubmit,
         errors,
-    } = useForm<IProduct>({
-        validations: {
-            product_name: {
-                required: {
-                    value: true,
-                    message: 'This field is required',
-                },
+    } = useForm<IProduct>(
+        getFormValidation({
+            onSubmit: () => {
+                dispatch(updateStore({ _id: formData._id, ...product }));
+                navigate('/');
             },
-            weight: {
-                required: {
-                    value: true,
-                    message: 'This field is required',
-                },
-            },
-            availability: {
-                required: {
-                    value: false,
-                    message: '',
-                },
-            },
-            url: {
-                required: {
-                    value: true,
-                    message: 'This field is required',
-                },
-            },
-            price_tier: {
-                required: {
-                    value: true,
-                    message: 'This field is required',
-                },
-            },
-            price_range: {
-                required: {
-                    value: true,
-                    message: 'This field is required',
-                },
-            },
-            isEditable: {
-                required: {
-                    value: false,
-                    message: '',
-                },
-            },
-        },
-        onSubmit: () => {
-            dispatch(updateStore({ _id: formData._id, ...product }));
-            navigate('/');
-        },
-        initialValues: formData as IProduct,
-    });
-
+            initialValues: formData as IProduct,
+        })
+    );
     if (!product) return <div>No product found!</div>;
     return (
         <form onSubmit={handleSubmit} css={formCSS}>
