@@ -8,6 +8,9 @@ Run following commands in the root directory of the project:
 
 ## yarn dev #this will start serving project locally
 
+Note: This project was developed and is tested on node version 16.13.0. 
+Recommended to install Volta to automaticaly pick these dependencies.
+
 Additionally, following commands are available:
 
 ```
